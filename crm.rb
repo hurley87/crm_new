@@ -4,6 +4,8 @@ require 'sinatra'
 
 @@rolodex = Rolodex.new
 
+@@rolodex.add_contact(Contact.new("Johnny", "Bravo", "johnny@bitmakerlabs.com", "Rockstar"))
+
 get '/' do
 	@crm_app_name = "My CRM"
 	@time = Time.now.to_s
@@ -18,11 +20,16 @@ get '/contacts/new' do
 	erb :new_contact
 end
 
-get 'contacts/:id' do
-
+get '/contacts/1000' do
+ @contact = @@rolodex.find(1000)
+ erb :show_contact
 end
 
 get "/contacts/:id/edit" do
+	erb :edit
+end
+
+post "/contacts/:id/edit" do
 	erb :edit
 end
 
