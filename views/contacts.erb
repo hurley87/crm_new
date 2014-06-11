@@ -7,17 +7,42 @@
 		<h1>You have <%= @@rolodex.contacts.size %> friends. </h1>
 	<% end %>
 	<p><a class="button" href="/contacts/new">Add a Friend</a></p>
+		
 		<% @@rolodex.contacts.each do |contact| %>
-		<div class="box"><a href="/contacts/<%= contact.id %>">
+		<% if contact.rating.to_i > 5 %>
+		<h3 style="text-align: left;">Great Friends</h3>
+		<div class="box">
+			<a href="/contacts/<%= contact.id %>">
 	  	<form action="/contacts/<%= contact.id %>" method="post">
 		  		<input type="hidden" name="_method" value="delete">
 		 	 		<input class="quick_delete" type="submit" name="Delete Contact" value="X">
 			</form> 
-			<p><%= contact.first_name %> <%= contact.last_name %> </p>
+			<p class="name_info"><%= contact.first_name %> <%= contact.last_name %> </p>
 			<div class="other_info">
 				<p><%= contact.email %></p>
 				<p><%= contact.note %></p>
+				<p><%= contact.rating %></p>
 			</div>
-		</a></div>
+		 </a>
+		</div>
+		<% else %>
+				<h3 style="text-align: left;">Good Friends</h3>
+		<div class="box">
+			<a href="/contacts/<%= contact.id %>">
+	  	<form action="/contacts/<%= contact.id %>" method="post">
+		  		<input type="hidden" name="_method" value="delete">
+		 	 		<input class="quick_delete" type="submit" name="Delete Contact" value="X">
+			</form> 
+			<p class="name_info"><%= contact.first_name %> <%= contact.last_name %> </p>
+			<div class="other_info">
+				<p><%= contact.email %></p>
+				<p><%= contact.note %></p>
+				<p><%= contact.rating %></p>
+			</div>
+		 </a>
+		</div>
+
 		<% end %>
+		<% end %>
+
 </div>

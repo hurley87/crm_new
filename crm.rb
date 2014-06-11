@@ -24,6 +24,7 @@ put "/contacts/:id" do
     @contact.last_name = params[:last_name]
     @contact.email = params[:email]
     @contact.note = params[:note]
+    @contact.rating = params[:rating]
 
     redirect to("/")
   else
@@ -55,7 +56,8 @@ post "/contacts/:id/edit" do
 end
 
 post '/contacts' do
-  new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
+  new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note], params[:rating])
+  p params
   @@rolodex.add_contact(new_contact)
   redirect to('/')
 end

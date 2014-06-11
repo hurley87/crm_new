@@ -15,12 +15,15 @@ $(document).ready(function() {
 	});
 
 	$('.box').on('mouseover', function() {
-			$(this).find('.other_info').show(500);
-			$(this).find('.quick_delete').show(500);
+			$(this).find('.other_info').show(1000);
+			$(this).find('.quick_delete').show(1000);
+			$(this).find('.name_info').hide();
+
 	});
 	$('.box').on('mouseleave', function() {
-			$(this).find('.other_info').hide(500);
-			$(this).find('.quick_delete').hide(500);
+			$(this).find('.other_info').hide();
+			$(this).find('.quick_delete').hide();
+			$(this).find('.name_info').fadeIn(1000);
 	});
 	
 });

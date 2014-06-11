@@ -1,17 +1,18 @@
 
 <div class="container">
-	<h3 style="float: left;" class="center"><a href="/contacts/<%= @contact.id %>">Back</a></h3>
-	<h1>Edit a Contact</h1>
+	<h4 style="float: left;" class="center"><a href="/contacts/<%= @contact.id %>">Back</a></h4>
+	<h1>Edit Friend</h1>
 	<form action="/contacts/<%= @contact.id %>" method="post">
 	  <input type="hidden" name="_method" value="put">
-	  <h3>First Name?</h3>
+	  <h4>First Name?</h4>
 	  <p><input class="blue_border" type="text" name="first_name" value="<%= @contact.first_name %>"></p>
-	  <h3>Last Name</h3>
+	  <h4>Last Name</h4>
 	  <input class="blue_border" type="text" name="last_name" value="<%= @contact.last_name %>"></p>
-	 <h3>Email?</h3>
+	 <h4>Email?</h4>
 	  <p><input class="blue_border" type="text" name="email" value="<%= @contact.email %>"></p>
-	  <h3>Note?</h3>
+	  <h4>Note?</h4>
 	  <p><input class="blue_border" type="text" name="note" value="<%= @contact.note %>"></p>
+	  <h4>Rating: 0<input type="range" name="rating" min="1" max="10">10</h4>
 	  <p><input class="button" type="submit" name="Submit">
 	</form>
 </div>

@@ -1,21 +1,22 @@
 <div class="container">
-	<h1>Add a Friend</h1>
+	<h2>Add a Friend</h2>
 	<form action="/contacts" method="post">
 		<div id="first_name">
-		  <h3>First Name?</h3>
+		  <h4>First Name?</h4>
 		  <p><input class="blue_border" type="text" name="first_name" placeholder="John" required></p>
 	  </div>
 	  <div id="last_name">
-		  <h3 >Last Name?</h3>
+		  <h4 >Last Name?</h4>
 		  <input class="blue_border" type="text" name="last_name" placeholder="Smith" required>
 	  </div>
 	  <div id="email">
-	  <h3>Email?</h3>
+	  <h4>Email?</h4>
 	  <input class="blue_border" type="text" name="email" placeholder="example@email.com" required>
 	  </div>
 	  <div id="note">
-	  <h3>Anything Else?</h3>
+	  <h4>Anything Else?</h4>
 	  <p><input class="blue_border" type="text" name="note" placeholder="John is a cool guy." required></p>
+	  <h4>Rating: 0<input type="range" name="rating" min="1" max="10">10</h4>
 	  <p><input class="button" type="submit" name="Submit"></p>
 	  </div>
 	</form>
