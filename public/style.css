@@ -86,6 +86,7 @@ input {
 	overflow: scroll;
 	text-align: left;
 	padding: 5px;
+	height: 100px;
 }
 .box p {
 		color: black;
@@ -93,6 +94,14 @@ input {
 }
 .box:hover {
 	border: 2px solid white;
+}
+
+.quick_delete {
+	float: right;
+}
+.quick_delete:hover {
+	border: 1px solid white;
+	
 }
 footer {
 		position:fixed;

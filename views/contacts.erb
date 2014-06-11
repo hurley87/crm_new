@@ -9,10 +9,15 @@
 	<p><a class="button" href="/contacts/new">Add a Friend</a></p>
 		<% @@rolodex.contacts.each do |contact| %>
 		<div class="box"><a href="/contacts/<%= contact.id %>">
-	  	<p>First Name: <%= contact.first_name %></p>
-	  	<p>Last Name: <%= contact.last_name %> </p>
-	  	<p>Email:<%= contact.email %> </p>
-	  	<p>Note: <%= contact.note %> </p>
-	  </a></div>
+	  	<form action="/contacts/<%= contact.id %>" method="post">
+		  		<input type="hidden" name="_method" value="delete">
+		 	 		<input class="quick_delete" type="submit" name="Delete Contact" value="X">
+			</form> 
+			<p><%= contact.first_name %> <%= contact.last_name %> </p>
+			<div class="other_info">
+				<p><%= contact.email %></p>
+				<p><%= contact.note %></p>
+			</div>
+		</a></div>
 		<% end %>
 </div>
