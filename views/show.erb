@@ -8,6 +8,6 @@
 	<p><%= @contact.note %></p>
 	<form action="/contacts/<%= @contact.id %>" method="post">
 	  <input type="hidden" name="_method" value="delete">
-	  <input class="button" type="submit" name="Delete Contact" value="Delete">
+	  <input class="button" type="submit" name="Delete Contact" value="Delete <%= @contact.first_name %>">
 	</form>
 </div>

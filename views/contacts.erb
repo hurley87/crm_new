@@ -1,6 +1,11 @@
-
 <div class="container">
-	<h1>You have <%= @@rolodex.contacts.size %> friends. </h1>
+	<% if @@rolodex.contacts.size == 0 %>
+		<h1>You have no friends, feel free to add one. </h1>
+	<% elsif @@rolodex.contacts.size == 1 %>
+		<h1>You have 1 friend. </h1>
+	<% else %>
+		<h1>You have <%= @@rolodex.contacts.size %> friends. </h1>
+	<% end %>
 	<p><a class="button" href="/contacts/new">Add a Friend</a></p>
 		<% @@rolodex.contacts.each do |contact| %>
 		<div class="box"><a href="/contacts/<%= contact.id %>">

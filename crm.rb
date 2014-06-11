@@ -4,8 +4,6 @@ require 'sinatra'
 
 @@rolodex = Rolodex.new
 
-@@rolodex.add_contact(Contact.new("Johnny", "Bravo", "johnny@bitmakerlabs.com", "Rockstar"))
-
 get '/' do
 	erb :contacts
 end
@@ -27,6 +25,16 @@ put "/contacts/:id" do
     @contact.email = params[:email]
     @contact.note = params[:note]
 
+    redirect to("/")
+  else
+    raise Sinatra::NotFound
+  end
+end
+
+delete '/contacts/:id' do
+  @contact = @@rolodex.find(params[:id].to_i)
+  if @contact
+    @@rolodex.remove_contact(@contact)
     redirect to("/")
   else
     raise Sinatra::NotFound
