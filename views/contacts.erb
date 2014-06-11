@@ -8,9 +8,12 @@
 	<% end %>
 	<p><a class="button" href="/contacts/new">Add a Friend</a></p>
 		
-		<% @@rolodex.contacts.each do |contact| %>
-		<% if contact.rating.to_i > 5 %>
+	<!-- great friends -->
 		<h3 style="text-align: left;">Great Friends</h3>
+		<% @@rolodex.contacts.each do |contact| %>
+		
+		
+		<% if contact.rating.to_i > 5 %>
 		<div class="box">
 			<a href="/contacts/<%= contact.id %>">
 	  	<form action="/contacts/<%= contact.id %>" method="post">
@@ -25,8 +28,13 @@
 			</div>
 		 </a>
 		</div>
-		<% else %>
-				<h3 style="text-align: left;">Good Friends</h3>
+		<% end %>
+		<% end %>
+		<!-- Good Freidns -->
+		<h3 style="text-align: left;">Good Friends</h3>
+		<% @@rolodex.contacts.each do |contact| %>
+		<% if contact.rating.to_i < 5 %>
+		
 		<div class="box">
 			<a href="/contacts/<%= contact.id %>">
 	  	<form action="/contacts/<%= contact.id %>" method="post">
