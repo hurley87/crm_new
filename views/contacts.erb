@@ -1,7 +1,12 @@
-<h1>All Contacts</h1>
 
-<ul>
-<% @@rolodex.contacts.each do |contact| %>
-  <li><%= contact.first_name %> <%= contact.last_name %> </li>
-<% end %>
-</ul>
+<div class="container">
+	<h1>All Friends</h1>
+		<% @@rolodex.contacts.each do |contact| %>
+		<div class="box"><a href="/contacts/1000">
+	  	<p>First Name: <%= contact.first_name %></p>
+	  	<p>Last Name: <%= contact.last_name %> </p>
+	  	<p>Email:<%= contact.email %> </p>
+	  	<p>Note: <%= contact.note %> </p>
+	  </a></div>
+		<% end %>
+</div>

@@ -3,22 +3,21 @@
   <head>
   	<link rel="stylesheet" type="text/css" href="/style.css">
   	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script type="text/javascript" src="cool.js"></script>
   </head>
   <body>
   	<header>
-  		<h2>Rolodexer</h2>
+  		<h2><a class="link" href="/">FriendScroll</a></h2>
   		<nav>
   			<ul>
-  				<li>link</li>
-  				<li>link</li>
-  				<li>link</li>
-  				<li>link</li>
+          <li><a class="link" href="/contacts/new">Add</a></li>
+  				<li><a class="link" href="/contacts">Find</a></li>
   			</ul>
   		</nav>
   	</header>
-  	<br class="clear">
     <%= yield %>
     <footer>
     </footer>

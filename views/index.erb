@@ -1,7 +1,14 @@
-<h1>Welcome to this Welcome to <%= @crm_app_name %>!</h1>
-<h3>Time is now <%= @time %></h3>
-<p>Main menu</p>
-<ul>
-  <li><a href="/contacts">View all contacts</a></li>
+<div class="container">
+	<h1 class="question">What's Your Name?</h1>
+	<div id="message">
+		<h2>Hey <span class="name"></span>!</h2>
+	<h2>Today is <span class="date">00/00/00</span> </h2>
+	<h2>And you have <%= @@rolodex.contacts.size %> friends. </h2>
+	 <p><a class="button" href="/contacts/new">Add a Friend</a></p>
+	</div>
   <!-- please complete me with links to other actions -->
-</ul>
+  <input id="user_name" type="text" name="user_name">
+  <br>
+
+ 
+</div>	

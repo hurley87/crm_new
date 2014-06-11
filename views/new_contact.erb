@@ -1,9 +1,22 @@
-<h1>Create new Contact</h1>
-
-<form action="/contacts" method="post">
-  <input type="text" name="first_name">
-  <input type="text" name="last_name">
-  <input type="text" name="email">
-  <input type="text" name="note">
-  <input type="submit" name="Submit">
-</form>
+<div class="container">
+	<h1>Add a New Friend</h1>
+	<form action="/contacts" method="post">
+		<div id="first_name">
+		  <h3>First Name?</h3>
+		  <p><input class="blue_border" type="text" name="first_name"></p>
+	  </div>
+	  <div id="last_name">
+		  <h3 >Last Name?</h3>
+		  <input class="blue_border" type="text" name="last_name">
+	  </div>
+	  <div id="email">
+	  <h3>Email?</h3>
+	  <input class="blue_border" type="text" name="email">
+	  </div>
+	  <div id="note">
+	  <h3>Anything Else?</h3>
+	  <p><input class="blue_border" type="text" name="note"></p>
+	  <p><input class="button" type="submit" name="Submit"></p>
+	  </div>
+	</form>
+</div>

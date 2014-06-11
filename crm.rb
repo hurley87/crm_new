@@ -7,8 +7,7 @@ require 'sinatra'
 @@rolodex.add_contact(Contact.new("Johnny", "Bravo", "johnny@bitmakerlabs.com", "Rockstar"))
 
 get '/' do
-	@crm_app_name = "My CRM"
-	@time = Time.now.to_s
+	@time = Date.today.to_s 
 	erb :index
 end
 
