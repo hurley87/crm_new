@@ -1,8 +1,9 @@
 
 <div class="container">
-	<h1>All Friends</h1>
+	<h1>You have <%= @@rolodex.contacts.size %> friends. </h1>
+	<p><a class="button" href="/contacts/new">Add a Friend</a></p>
 		<% @@rolodex.contacts.each do |contact| %>
-		<div class="box"><a href="/contacts/1000">
+		<div class="box"><a href="/contacts/<%= contact.id %>">
 	  	<p>First Name: <%= contact.first_name %></p>
 	  	<p>Last Name: <%= contact.last_name %> </p>
 	  	<p>Email:<%= contact.email %> </p>

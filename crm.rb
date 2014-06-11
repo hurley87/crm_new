@@ -7,12 +7,7 @@ require 'sinatra'
 @@rolodex.add_contact(Contact.new("Johnny", "Bravo", "johnny@bitmakerlabs.com", "Rockstar"))
 
 get '/' do
-	@time = Date.today.to_s 
-	erb :index
-end
-
-get '/contacts' do 
-  erb :contacts
+	erb :contacts
 end
 
 get '/contacts/new' do
@@ -32,7 +27,7 @@ put "/contacts/:id" do
     @contact.email = params[:email]
     @contact.note = params[:note]
 
-    redirect to("/contacts")
+    redirect to("/")
   else
     raise Sinatra::NotFound
   end
@@ -54,5 +49,5 @@ end
 post '/contacts' do
   new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
   @@rolodex.add_contact(new_contact)
-  redirect to('/contacts')
+  redirect to('/')
 end
