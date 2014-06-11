@@ -1,4 +1,6 @@
+
 <div class="container">
+	<h3 style="float: left;" class="center"><a href="/contacts/<%= @contact.id %>">Back</a></h3>
 	<h1>Edit a Contact</h1>
 	<form action="/contacts/<%= @contact.id %>" method="post">
 	  <input type="hidden" name="_method" value="put">
