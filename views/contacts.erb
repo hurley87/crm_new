@@ -12,45 +12,45 @@
 		<h3 style="text-align: left;">Great Friends</h3>
 		<% @@rolodex.contacts.each do |contact| %>
 		
-		
-		<% if contact.rating.to_i > 5 %>
-		<div class="box">
-			<a href="/contacts/<%= contact.id %>">
-	  	<form action="/contacts/<%= contact.id %>" method="post">
-		  		<input type="hidden" name="_method" value="delete">
-		 	 		<input class="quick_delete" type="submit" name="Delete Contact" value="X">
-			</form> 
-			<p class="name_info"><%= contact.first_name %> <%= contact.last_name %> </p>
-			<div class="other_info">
-				<p><%= contact.email %></p>
-				<p><%= contact.note %></p>
-				<p><%= contact.rating %></p>
-			</div>
-		 </a>
-		</div>
-		<% end %>
+			
+			<% if contact.rating.to_i > 5 %>
+				<div class="box">
+					<a href="/contacts/<%= contact.id %>">
+			  	<form action="/contacts/<%= contact.id %>" method="post">
+				  		<input type="hidden" name="_method" value="delete">
+				 	 		<input class="quick_delete" type="submit" name="Delete Contact" value="X">
+					</form> 
+					<p class="name_info"><%= contact.first_name %> <%= contact.last_name %> </p>
+					<div class="other_info">
+						<p><%= contact.email %></p>
+						<p><%= contact.note %></p>
+						<p><%= contact.rating %></p>
+					</div>
+				 </a>
+				</div>
+			<% end %>
 		<% end %>
 		<!-- Good Freidns -->
 		<h3 style="text-align: left;">Good Friends</h3>
 		<% @@rolodex.contacts.each do |contact| %>
-		<% if contact.rating.to_i < 5 %>
-		
-		<div class="box">
-			<a href="/contacts/<%= contact.id %>">
-	  	<form action="/contacts/<%= contact.id %>" method="post">
-		  		<input type="hidden" name="_method" value="delete">
-		 	 		<input class="quick_delete" type="submit" name="Delete Contact" value="X">
-			</form> 
-			<p class="name_info"><%= contact.first_name %> <%= contact.last_name %> </p>
-			<div class="other_info">
-				<p><%= contact.email %></p>
-				<p><%= contact.note %></p>
-				<p><%= contact.rating %></p>
-			</div>
-		 </a>
-		</div>
+			<% if contact.rating.to_i < 5 %>
+			
+				<div class="box">
+					<a href="/contacts/<%= contact.id %>">
+			  	<form action="/contacts/<%= contact.id %>" method="post">
+				  		<input type="hidden" name="_method" value="delete">
+				 	 		<input class="quick_delete" type="submit" name="Delete Contact" value="X">
+					</form> 
+					<p class="name_info"><%= contact.first_name %> <%= contact.last_name %> </p>
+					<div class="other_info">
+						<p><%= contact.email %></p>
+						<p><%= contact.note %></p>
+						<p><%= contact.rating %></p>
+					</div>
+				 </a>
+				</div>
 
-		<% end %>
+			<% end %>
 		<% end %>
 
 </div>
