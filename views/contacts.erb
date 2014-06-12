@@ -1,6 +1,6 @@
 <div class="container">
 	<% if @@rolodex.contacts.size == 0 %>
-		<h1>You literally have no friends. </h1>
+		<h1 class="loser">You have no friends. LOL. </h1>
 	<% elsif @@rolodex.contacts.size == 1 %>
 		<h1>You have 1 friend. </h1>
 	<% else %>
@@ -9,31 +9,49 @@
 	<p><a class="button" href="/contacts/new">Add a Friend</a></p>
 		
 	<!-- great friends -->
-		<h3 style="text-align: left;">Great Friends</h3>
+		<% if @@rolodex.contacts.size > 0 %>
+			<h3 style="text-align: left;">Great Friends</h3>
+		<% end %>
 		<% @@rolodex.contacts.each do |contact| %>
 		
 			
-			<% if contact.rating.to_i > 5 %>
+			<% if contact.rating.to_i >= 3 %>
 				<div class="box">
 					<a href="/contacts/<%= contact.id %>">
 			  	<form action="/contacts/<%= contact.id %>" method="post">
 				  		<input type="hidden" name="_method" value="delete">
 				 	 		<input class="quick_delete" type="submit" name="Delete Contact" value="X">
 					</form> 
-					<p class="name_info"><%= contact.first_name %> <%= contact.last_name %> </p>
+					<div class="name_info">
+						<p><%= contact.first_name %> <%= contact.last_name %></p>
+						<% if contact.rating.to_i == 1%>
+							<h3>&#9734;</h3>
+							<% elsif contact.rating.to_i == 2 %>
+							<h3>&#9734;&#9734;</h3>
+							<% elsif contact.rating.to_i == 3 %>
+							<h3>&#9734;&#9734;&#9734;</h3>
+							<% elsif contact.rating.to_i == 4 %>
+							<h3>&#9734;&#9734;&#9734;&#9734;</h3>
+							<% else %>
+							<h3>&#9734;&#9734;&#9734;&#9734;&#9734;</h3>
+						<% end %>
+						
+						<!-- -->
+					</div>
 					<div class="other_info">
 						<p><%= contact.email %></p>
 						<p><%= contact.note %></p>
-						<p><%= contact.rating %></p>
 					</div>
 				 </a>
 				</div>
 			<% end %>
 		<% end %>
-		<!-- Good Freidns -->
-		<h3 style="text-align: left;">Good Friends</h3>
+		<!-- Good Friends -->
+		<% if @@rolodex.contacts.size > 0 %>
+			<h3 style="text-align: left;">Good Friends</h3>
+		<% end %>
 		<% @@rolodex.contacts.each do |contact| %>
-			<% if contact.rating.to_i < 5 %>
+			<% if contact.rating.to_i < 3 %>
 			
 				<div class="box">
 					<a href="/contacts/<%= contact.id %>">
@@ -41,11 +59,25 @@
 				  		<input type="hidden" name="_method" value="delete">
 				 	 		<input class="quick_delete" type="submit" name="Delete Contact" value="X">
 					</form> 
-					<p class="name_info"><%= contact.first_name %> <%= contact.last_name %> </p>
+					<div class="name_info">
+						<p><%= contact.first_name %> <%= contact.last_name %></p>
+						<% if contact.rating.to_i == 1%>
+							<h3>&#9734;</h3>
+							<% elsif contact.rating.to_i == 2 %>
+							<h3>&#9734;&#9734;</h3>
+							<% elsif contact.rating.to_i == 3 %>
+							<h3>&#9734;&#9734;&#9734;</h3>
+							<% elsif contact.rating.to_i == 4 %>
+							<h3>&#9734;&#9734;&#9734;&#9734;</h3>
+							<% else %>
+							<h3>&#9734;&#9734;&#9734;&#9734;&#9734;</h3>
+						<% end %>
+						
+						<!-- -->
+					</div>
 					<div class="other_info">
 						<p><%= contact.email %></p>
 						<p><%= contact.note %></p>
-						<p><%= contact.rating %></p>
 					</div>
 				 </a>
 				</div>

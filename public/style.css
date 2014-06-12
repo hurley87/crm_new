@@ -103,6 +103,11 @@ input {
 	border: 1px solid white;
 	
 }
+
+.loser {
+	font-size: 4em;
+	font-family: 'Francois One', sans-serif;
+}
 footer {
 		position:fixed;
    bottom:0;
