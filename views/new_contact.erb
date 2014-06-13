@@ -1,23 +1,19 @@
 <div class="container">
 	<h2>Add a Friend</h2>
 	<form action="/contacts" method="post">
-		<div id="first_name">
-		  <h4>First Name?</h4>
-		  <p><input class="blue_border" type="text" name="first_name" placeholder="John" required></p>
-	  </div>
-	  <div id="last_name">
-		  <h4 >Last Name?</h4>
-		  <input class="blue_border" type="text" name="last_name" placeholder="Smith" required>
-	  </div>
-	  <div id="email">
-	  <h4>Email?</h4>
-	  <input class="blue_border" type="text" name="email" placeholder="example@email.com" required>
-	  </div>
-	  <div id="note">
-	  <h4>Anything Else?</h4>
-	  <p><input class="blue_border" type="text" name="note" placeholder="John is a cool guy." required></p>
+
+		  <p><label for="first_name">First Name</label> <input id="first_name" class="blue_border" type="text" name="first_name" placeholder="first name" required></p>
+	
+	 
+		  <p><label for="last_name">Last Name</label> <input id="last_name" class="blue_border" type="text" name="last_name" placeholder="last name" required></p>
+		  
+	
+	  <p><label for="email">Email</label> <input id="email" class="blue_border" type="email" name="email" placeholder="email" required></p>
+	
+
+	  <p><label for="note">Note</label> <input id="note" class="blue_border" type="text" name="note" placeholder="Other information" required></p>
 	  <h4>Rating: 1<input type="range" name="rating" min="1" max="5">5</h4>
 	  <p><input class="button" type="submit" name="Submit"></p>
-	  </div>
+
 	</form>
 </div>

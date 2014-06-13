@@ -1,18 +1,18 @@
 <div class="container">
-	<% if @@rolodex.contacts.size == 0 %>
+	<% if @contacts.size == 0 %>
 		<h1 class="loser">You have no friends. LOL. </h1>
-	<% elsif @@rolodex.contacts.size == 1 %>
+	<% elsif @contacts.size == 1 %>
 		<h1>You have 1 friend. </h1>
 	<% else %>
-		<h1>You have <%= @@rolodex.contacts.size %> friends. </h1>
+		<h1>You have <%= @contacts.size %> friends. </h1>
 	<% end %>
 	<p><a class="button" href="/contacts/new">Add a Friend</a></p>
 		
 	<!-- great friends -->
-		<% if @@rolodex.contacts.size > 0 %>
+		<% if @contacts.size > 0 %>
 			<h3 style="text-align: left;">Great Friends</h3>
 		<% end %>
-		<% @@rolodex.contacts.each do |contact| %>
+		<% @contacts.each do |contact| %>
 		
 			
 			<% if contact.rating.to_i >= 3 %>
@@ -47,10 +47,10 @@
 			<% end %>
 		<% end %>
 		<!-- Good Friends -->
-		<% if @@rolodex.contacts.size > 0 %>
+		<% if @contacts.size > 0 %>
 			<h3 style="text-align: left;">Good Friends</h3>
 		<% end %>
-		<% @@rolodex.contacts.each do |contact| %>
+		<% @contacts.each do |contact| %>
 			<% if contact.rating.to_i < 3 %>
 			
 				<div class="box">
