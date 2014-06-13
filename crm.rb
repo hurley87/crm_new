@@ -1,6 +1,7 @@
 
 require 'sinatra'
 require 'data_mapper'
+enable 'sessions'
 
 DataMapper.setup(:default, "sqlite3:database.sqlite3")
 
@@ -19,6 +20,7 @@ DataMapper.finalize
 DataMapper.auto_upgrade!
 
 
+
 get '/' do
   @contacts = Contact.all
 	erb :contacts
@@ -28,28 +30,27 @@ get '/contacts/new' do
 	erb :new_contact
 end
 
+
+post '/contacts' do
+  @contact = Contact.create(
+    :first_name => params[:first_name],
+    :last_name => params[:last_name],
+    :email => params[:email],
+    :note => params[:note],
+    :rating => params[:rating]
+  )
+  session['id'] = @contact.id
+  redirect to('/')
+end
+
 get '/contacts/:id' do
  @contact = Contact.get(params[:id].to_i)
  erb :show
 end
 
-put "/contacts/:id" do
-  @contact = Contact.get(params[:id].to_i)
-  if @contact
-    @contact.first_name = params[:first_name]
-    @contact.last_name = params[:last_name]
-    @contact.email = params[:email]
-    @contact.note = params[:note]
-    @contact.rating = params[:rating]
-
-    redirect to("/")
-  else
-    raise Sinatra::NotFound
-  end
-end
-
 delete '/contacts/:id' do
   @contact = Contact.get(params[:id].to_i)
+  p Contact
   if @contact
     @contact.destroy
     redirect to("/")
@@ -67,17 +68,13 @@ get "/contacts/:id/edit" do
   end
 end
 
-post "/contacts/:id/edit" do
-	erb :edit
-end
-
-post '/contacts' do
-  contact = Contact.create(
+post "/contacts/:id" do
+  @contact = Contact.get(params[:id].to_i)
+  @contact.update(
     :first_name => params[:first_name],
     :last_name => params[:last_name],
     :email => params[:email],
-    :note => params[:note],
-    :rating => params[:rating]
+    :note => params[:note]
   )
-  redirect to('/')
+	redirect to('/')
 end

@@ -3,7 +3,6 @@
 	<h4 style="float: left;" class="center"><a href="/contacts/<%= @contact.id %>">Back</a></h4>
 	<h1>Edit Friend</h1>
 	<form action="/contacts/<%= @contact.id %>" method="post">
-	  <input type="hidden" name="_method" value="put">
 	  <p><label for="first_name">First Name</label> <input id="first_name" class="blue_border" type="text" name="first_name" value="<%= @contact.first_name %>"></p>
 	  <p><label for="last_name">Last Name</label> <input id="last_name" class="blue_border" type="text" name="last_name" value="<%= @contact.last_name %>"></p>
 	  <p><label for="email">Email</label> <input id="email" class="blue_border" type="text" name="email" value="<%= @contact.email %>"></p>
